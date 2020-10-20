@@ -13,6 +13,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Nav } from 'react-bootstrap';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Read } from './components/read';
+import { Create } from './components/create';
 
 //change from function to class
 //In order to be a component it will have to extend React.Component
@@ -38,8 +40,8 @@ class App extends React.Component {
           </Navbar>
           <Switch>
             <Route path='/home' component={Content} extact ></Route>
-            <Route path='/read' component={Header} ></Route>
-            <Route path='/create' component={Footer} ></Route>
+            <Route path='/read' component={Read} ></Route>
+            <Route path='/create' component={Create} ></Route>
           </Switch>
 
         </div>
