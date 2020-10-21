@@ -10,7 +10,7 @@ export class Movies extends React.Component{
     //in the return method, it splits the collection using the map function, this splits them into 4 individual movies 
     render(){
         return this.props.movies.map( (movie)=>{
-            return <MovieItem movie={movie}></MovieItem>
+            return <MovieItem movie={movie} key={movie.imdbID}></MovieItem>
         })
     }
 }

@@ -5,12 +5,13 @@ import Card from 'react-bootstrap/Card';
 export class MovieItem extends React.Component {
 
     //this component is designed to display the data 
+    //the card is used for better display of the data, it give a better look of the page 
     render() {
         return (
             <div>
 
                 <Card>
-                    <Card.Header>this.props.movie.Title</Card.Header>
+                    <Card.Header>{this.props.movie.Title}</Card.Header>
                     <Card.Body>
                         <blockquote className="blockquote mb-0">
                             <img src={this.props.movie.Poster} width="200" height="200"></img>

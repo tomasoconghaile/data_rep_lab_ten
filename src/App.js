@@ -13,7 +13,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Nav } from 'react-bootstrap';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+//importing Read 
 import { Read } from './components/read';
+//importing Create
 import { Create } from './components/create';
 
 //change from function to class
@@ -33,17 +35,17 @@ class App extends React.Component {
           <Navbar bg="primary" variant="dark">
             <Navbar.Brand href="/">My App</Navbar.Brand>
             <Nav className="mr-auto">
-              <Nav.Link href="/home">Home</Nav.Link>
+              <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="/read">Read</Nav.Link>
               <Nav.Link href="/create">Create</Nav.Link>
             </Nav>
           </Navbar>
+          
           <Switch>
-            <Route path='/home' component={Content} extact ></Route>
-            <Route path='/read' component={Read} ></Route>
-            <Route path='/create' component={Create} ></Route>
+            <Route path='/' component={Content} exact />
+            <Route path='/create' component={Create} exact />
+            <Route path='/read' component={Read} exact />
           </Switch>
-
         </div>
       </Router>
     );
