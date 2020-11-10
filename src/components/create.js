@@ -1,5 +1,7 @@
 import { render } from '@testing-library/react';
 import React from 'react';
+//import axios
+import axios from 'axios';
 
 export class Create extends React.Component {
 
@@ -49,6 +51,30 @@ export class Create extends React.Component {
     onSubmit(e) {
         e.preventDefault();
         alert("Movie: " + this.state.Title + " " + this.state.Year + " " + this.state.Poster);
+
+        //creating new object 
+        const newMovie = {
+            //creating lowercase as there is already uppercase
+            //server is listening for lowercase that's why it's being used
+            //sending them up
+            title: this.state.Title,
+            year: this.state.Year,
+            poster: this.state.Poster
+        }
+        //axios - post method 
+        //send data to the server
+        axios.post('http://localhost:4000/api/movies',newMovie)
+        //return a promise 
+        //making post request asynchronously 
+        .then((res)=> {
+            //response coming back
+            //response to the console
+            console.log(res);
+        })
+        //error
+        .catch((err)=>{
+            console.log(err);
+        });
     }
 
     // onSubmit - when the button is clicked it gonna invoke a method thisonSubmit

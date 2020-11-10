@@ -15,12 +15,13 @@ export class Read extends React.Component {
     // PROMISE 
     // It gets called each time our component is mounted or becomes active in view 
     componentDidMount() {
-        axios.get('https://jsonblob.com/api/jsonblob/520c3b5e-0312-11eb-a6af-cbf00d776032')
+        axios.get('http://localhost:4000/api/movies')
             // .then() you write a function when it works and the happy path has been met 
             // updating the state
             // Json of response data is the data coming back as part of the response from the web server
             .then((response) => {
-                this.setState({ movies: response.data.Search })
+                //changed from Search to movies as it has been changed
+                this.setState({ movies: response.data.movies })
             })
             // .catch() writing function so it says OK if things don't workout
             // * unfulfilled - for the error coming back *
