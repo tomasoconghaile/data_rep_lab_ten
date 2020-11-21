@@ -21,7 +21,7 @@ export class Read extends React.Component {
             // Json of response data is the data coming back as part of the response from the web server
             .then((response) => {
                 //changed from Search to movies as it has been changed
-                this.setState({ movies: response.data.movies })
+                this.setState({ movies: response.data})
             })
             // .catch() writing function so it says OK if things don't workout
             // * unfulfilled - for the error coming back *
