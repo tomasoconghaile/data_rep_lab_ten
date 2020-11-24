@@ -112,6 +112,20 @@ app.put('/api/movies/:id', (req, res) => {
         })
 })
 
+//listening for http delete method 
+app.delete('/api/movies/:id' ,(req,res) => {
+    //trapping the actual ID so we know that we can get the ID 
+    console.log("Delete Movie: " + req.params.id); //this will say I'm deleting this movie
+    //delete 
+    //match the id back here 
+    MovieModel.findByIdAndDelete(req.params.id,
+        (err, data) => {
+        //send back some data 
+        res.send(data);
+    }); 
+
+})
+
 //listening to post request
 app.post('/api/movies', (req, res) => {
     //when data is passed up, it will take the body of the things passed up and include it 
