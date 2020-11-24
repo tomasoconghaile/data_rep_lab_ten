@@ -17,6 +17,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Read } from './components/read';
 //importing Create
 import { Create } from './components/create';
+//importing Edit
+import { Edit } from './components/edit';
 
 //change from function to class
 //In order to be a component it will have to extend React.Component
@@ -45,6 +47,7 @@ class App extends React.Component {
             <Route path='/' component={Content} exact />
             <Route path='/create' component={Create} exact />
             <Route path='/read' component={Read} exact />
+            <Route path='/edit/:id' component={Edit} exact />
           </Switch>
         </div>
       </Router>

@@ -83,6 +83,7 @@ app.get('/api/movies', (req, res) => {
     // });
 })
 
+//logic the server goes and gives a document with a particular ID 
 //method listening to get request
 app.get('/api/movies/:id', (req, res) => {
     //log to the console
@@ -93,6 +94,22 @@ app.get('/api/movies/:id', (req, res) => {
         //send some data
         res.json(data);
     })
+})
+
+//method listening for put
+app.put('/api/movies/:id', (req, res) => {
+    //log to the console
+    //pull the id out of the url
+    console.log("Update movie: " + req.params.id);
+    //pass object containing the new movie
+    console.log(req.body);
+    //asynchronous calls the database 
+    //find record with an ID and update it
+    MovieModel.findByIdAndUpdate(req.params.id, req.body, {new:true}, 
+        (err, data) => {
+            //send the data back
+            res.send(data);
+        })
 })
 
 //listening to post request
