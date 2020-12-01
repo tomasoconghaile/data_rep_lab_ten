@@ -7,6 +7,8 @@ const cors = require('cors');
 const bodyParser = require("body-parser");
 //include mongo
 const mongoose = require('mongoose');
+//include path
+const path = require('path');
 
 
 //using cors package everytime 
@@ -18,6 +20,12 @@ app.use(function (req, res, next) {
         "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
+
+//set up configuration (lines for configuration)
+//where to find build folder
+app.use(express.static(path.join(__dirname, '../build')));
+//where to find static folder
+app.use('/static', express.static(path.join(__dirname, 'build//static')));
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -145,6 +153,14 @@ app.post('/api/movies', (req, res) => {
     //so it doen't add a duplicate 
     res.send('Item Added');
 
+})
+
+//what URL to code to 
+// for all other roots '*'
+//
+app.get('*' , (req, res) => {
+    //sending to index.html
+    res.sendFile(path.join(__dirname + '/../build/index.html'));
 })
 
 app.listen(port, () => {
