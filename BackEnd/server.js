@@ -35,7 +35,7 @@ app.use(bodyParser.json())
 
 //local mongo db
 //replace the admin:<password> to your admin name 
-const myConnectionString = 'mongodb+srv://admin:Krystian1@cluster0.dnxw6.mongodb.net/movies?retryWrites=true&w=majority';
+const myConnectionString = 'mongodb+srv://admin:Jacob12345@cluster0.wlzsc.mongodb.net/movies?retryWrites=true&w=majority';
 //connection string to connect with mongo db
 mongoose.connect(myConnectionString, { useNewUrlParser: true });
 
